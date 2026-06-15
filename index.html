@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Storyblok Icon Picker</title>
+
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/dist/tabler-icons.min.css"
+  />
+
+  <link rel="stylesheet" href="./style.css" />
+</head>
+
+<body>
+
+  <div id="selected-bar">
+    <i id="selected-preview"></i>
+    <span id="selected-name"></span>
+    <button id="clear-btn" title="Clear selection">✕</button>
+  </div>
+
+  <div class="search-wrap">
+    <i class="ti ti-search"></i>
+    <input id="search" type="text" placeholder="Szukaj ikony…" autocomplete="off" />
+  </div>
+
+  <div id="grid"></div>
+
+  <div id="empty">
+    Nie znaleziono ikon dla "<span id="empty-term"></span>"
+  </div>
+
+  <script src="./app.js"></script>
+</body>
+</html>

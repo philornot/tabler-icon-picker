@@ -1,0 +1,10 @@
+{
+  "name": "storyblok-icon-picker",
+  "version": "1.0.0",
+  "description": "Custom Storyblok field plugin for selecting Tabler icons",
+  "private": true,
+  "scripts": {
+    "start": "npx http-server ."
+  },
+  "dependencies": {}
+}
