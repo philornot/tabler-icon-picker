@@ -7,7 +7,6 @@ const ICONS = [
   ["wheelchair", "niepełnosp."],
   ["walk", "aktywność"],
   ["hand-stop", "pomoc"],
-  ["hands-helping", "wsparcie"],
   ["mood-smile", "radość"],
   ["mood-happy", "szczęście"],
 
@@ -20,7 +19,7 @@ const ICONS = [
   ["cloud", "środowisko"],
   ["paw", "zwierzęta"],
 
-  ["book-open", "edukacja"],
+  ["school", "szkoła"],
   ["school", "szkoła"],
   ["pencil", "nauka"],
   ["certificate", "certyfikat"],
