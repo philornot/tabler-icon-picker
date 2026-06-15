@@ -2,18 +2,64 @@ const ICONS = [
   ["heart-handshake", "wolontariat"],
   ["heart", "serce"],
   ["users", "wolontariusze"],
+  ["user-heart", "opiekun"],
+  ["baby-carriage", "dzieci"],
+  ["wheelchair", "niepełnosp."],
+  ["walk", "aktywność"],
+  ["hand-stop", "pomoc"],
+  ["hands-helping", "wsparcie"],
+  ["mood-smile", "radość"],
+  ["mood-happy", "szczęście"],
+
   ["leaf", "ekologia"],
   ["tree", "drzewo"],
+  ["plant", "roślina"],
+  ["recycle", "recykling"],
+  ["droplet", "woda"],
+  ["sun", "słońce"],
+  ["cloud", "środowisko"],
+  ["paw", "zwierzęta"],
+
   ["book-open", "edukacja"],
   ["school", "szkoła"],
+  ["pencil", "nauka"],
+  ["certificate", "certyfikat"],
+  ["notebook", "notatki"],
+  ["presentation", "wykład"],
+  ["bulb", "pomysł"],
+
   ["stethoscope", "zdrowie"],
   ["first-aid-kit", "apteczka"],
+  ["pill", "leki"],
+  ["heartbeat", "tętno"],
+  ["brain", "zdrowie psych."],
+  ["bandage", "opatrunek"],
+
+  ["building-community", "społeczność"],
   ["home", "dom"],
+  ["tools", "remonty"],
+  ["hammer", "budownictwo"],
+  ["soup", "kuchnia"],
+  ["shopping-cart", "zakupy"],
   ["gift", "prezent"],
+  ["package", "paczka"],
+
   ["calendar-event", "wydarzenie"],
   ["map-pin", "lokalizacja"],
+  ["flag", "inicjatywa"],
+  ["trophy", "osiągnięcia"],
+  ["star", "wyróżnienie"],
+  ["medal", "medal"],
+  ["speakerphone", "ogłoszenia"],
+  ["music", "muzyka"],
+  ["palette", "sztuka"],
+  ["camera", "foto"],
+
   ["mail", "email"],
-  ["phone", "telefon"]
+  ["phone", "telefon"],
+  ["message-circle", "rozmowa"],
+  ["world", "globalnie"],
+  ["share", "udostępnij"]
 ];
 
 const grid = document.getElementById("grid");
@@ -28,18 +74,13 @@ const clearBtn = document.getElementById("clear-btn");
 
 let currentValue = "";
 
-/* Storyblok emit */
 function emitValue(value) {
-  window.parent.postMessage(
-    {
-      action: "field-plugin:set-value",
-      value
-    },
-    "*"
-  );
+  window.parent.postMessage({
+    action: "field-plugin:set-value",
+    value
+  }, "*");
 }
 
-/* selection */
 function applySelection(value) {
   currentValue = value;
 
@@ -56,7 +97,6 @@ function applySelection(value) {
   }
 }
 
-/* render */
 function renderGrid(query = "") {
   const q = query.toLowerCase();
 
@@ -66,7 +106,7 @@ function renderGrid(query = "") {
 
   grid.innerHTML = "";
 
-  if (filtered.length === 0) {
+  if (!filtered.length) {
     emptyEl.style.display = "block";
     emptyTerm.textContent = query;
     return;
@@ -97,30 +137,21 @@ function renderGrid(query = "") {
   });
 }
 
-/* search */
 searchEl.addEventListener("input", () => {
   renderGrid(searchEl.value);
 });
 
-/* clear */
 clearBtn.addEventListener("click", () => {
   applySelection("");
   emitValue("");
 });
 
-/* Storyblok init */
 window.addEventListener("message", e => {
   if (e.data?.action === "field-plugin:init") {
-    const value = e.data.field?.value || "";
-    applySelection(value);
+    applySelection(e.data.field?.value || "");
   }
 });
 
-/* READY handshake */
-window.parent.postMessage(
-  { action: "field-plugin:ready" },
-  "*"
-);
+window.parent.postMessage({ action: "field-plugin:ready" }, "*");
 
-/* init */
 renderGrid("");

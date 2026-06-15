@@ -12,7 +12,7 @@ body {
   padding: 12px;
 }
 
-/* Search */
+/* SEARCH */
 .search-wrap {
   position: relative;
   margin-bottom: 10px;
@@ -29,26 +29,28 @@ body {
 
 #search {
   width: 100%;
-  padding: 8px 10px 8px 32px;
+  padding: 9px 10px 9px 32px;
   border: 1.5px solid #d0eaf6;
-  border-radius: 8px;
+  border-radius: 10px;
   font-size: 13px;
   outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
 }
 
 #search:focus {
   border-color: #29abe2;
+  box-shadow: 0 0 0 3px rgba(41, 171, 226, 0.12);
 }
 
-/* Selected bar */
+/* SELECTED BAR */
 #selected-bar {
   display: none;
   align-items: center;
-  gap: 8px;
-  padding: 8px 12px;
+  gap: 10px;
+  padding: 10px 12px;
   background: #e8f6fd;
   border: 1.5px solid #a8dcf0;
-  border-radius: 8px;
+  border-radius: 10px;
   margin-bottom: 10px;
 }
 
@@ -72,33 +74,51 @@ body {
   border: none;
   cursor: pointer;
   color: #5a7a8f;
+  font-size: 14px;
+  padding: 4px 6px;
+  border-radius: 6px;
 }
 
-/* Grid */
+#clear-btn:hover {
+  background: #c8e8f5;
+  color: #0d6e9a;
+}
+
+/* GRID */
 #grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(56px, 1fr));
-  gap: 4px;
-  max-height: 340px;
+  grid-template-columns: repeat(auto-fill, minmax(64px, 1fr));
+  gap: 6px;
+  max-height: 360px;
   overflow-y: auto;
+  padding-right: 2px;
 }
 
+/* ICON BUTTON */
 .icon-btn {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 3px;
-  padding: 6px 4px;
+  gap: 4px;
+
+  padding: 8px 6px;
   border: 1.5px solid transparent;
-  border-radius: 8px;
+  border-radius: 10px;
   background: none;
   cursor: pointer;
+
+  transition: background 0.12s, border-color 0.12s, transform 0.08s;
 }
 
 .icon-btn:hover {
   background: #e8f6fd;
   border-color: #a8dcf0;
+  transform: translateY(-1px);
+}
+
+.icon-btn:active {
+  transform: translateY(0px);
 }
 
 .icon-btn.active {
@@ -107,7 +127,8 @@ body {
 }
 
 .icon-btn i {
-  font-size: 20px;
+  font-size: 22px;
+  color: #1a2b3c;
 }
 
 .icon-btn.active i {
@@ -116,14 +137,23 @@ body {
 
 .icon-btn span {
   font-size: 9px;
-  text-align: center;
   color: #5a7a8f;
+  text-align: center;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
-/* Empty */
+.icon-btn.active span {
+  color: #cfefff;
+}
+
+/* EMPTY */
 #empty {
   display: none;
-  padding: 24px;
+  padding: 26px;
   text-align: center;
   color: #8a9bac;
+  font-size: 13px;
 }
